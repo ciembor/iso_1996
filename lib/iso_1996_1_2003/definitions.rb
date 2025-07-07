@@ -5,6 +5,10 @@
 # ISO_1996_1_2003 module implements definitions from ISO 1996-1:2003 standard
 # related to acoustics and environmental noise descriptors.
 #
+# @author Maciej Ciemborowicz
+# @version 0.1
+# @since 2025-06-26
+#
 # It includes definitions for:
 # - Weighting types (A, C, Z)
 # - Sound level metrics (e.g., LAeq, Lden, Lnight)
