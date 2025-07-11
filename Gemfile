@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+# Gemfile
+source 'https://rubygems.org'
 
-gem 'yard'
-gem 'rspec'
+gemspec
