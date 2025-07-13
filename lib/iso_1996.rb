@@ -30,9 +30,10 @@
 # @see https://www.iso.org/standard/23776.html ISO 1996-2:2007
 # @see https://www.iso.org/standard/6750.html ISO 1996-3:1987
 
-require_relative 'iso_1996/basic'
-require_relative 'iso_1996/environmental_noise'
-require_relative 'iso_1996/noise_limits'
+require_relative 'iso_1996/withdrawn/part_1_2003'
+require_relative 'iso_1996/withdrawn/part_2_2007'
+require_relative 'iso_1996/withdrawn/part_3_1987'
+
 
 module ISO_1996
   ##

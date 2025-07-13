@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'iso_1996/environmental_noise'
+require 'iso_1996/withdrawn/part_2_2007'
 
-RSpec.describe ISO_1996::EnvironmentalNoise do
+RSpec.describe ISO_1996::Withdrawn::Part_2_2007 do
   describe ".background_noise_correction" do
     it "returns 0 for ΔL >= 10 dB" do
       expect(described_class.background_noise_correction(70, 60)).to eq(0.0)

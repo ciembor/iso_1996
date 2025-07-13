@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'iso_1996/noise_limits'
+require 'iso_1996/withdrawn/part_3_1987'
 
-RSpec.describe ISO_1996::NoiseLimits do
+RSpec.describe ISO_1996::Withdrawn::Part_3_1987 do
   describe ".tonal_adjustment_factor" do
     it "returns 6 dB for ΔL >= 15 dB (ISO 1996-3:1987 Table 1)" do
       expect(described_class.tonal_adjustment_factor(15)).to eq(6.0)
