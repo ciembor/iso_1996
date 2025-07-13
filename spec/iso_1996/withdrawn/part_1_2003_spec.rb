@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'iso_1996/basic'
+require 'iso_1996/withdrawn/part_1_2003'
 
-RSpec.describe ISO_1996::Basic do
+RSpec.describe ISO_1996::Withdrawn::Part_1_2003 do
   describe ".sound_pressure_level" do
     it "calculates sound pressure level for reference pressure" do
       p = 20e-6 # Pa (reference pressure)

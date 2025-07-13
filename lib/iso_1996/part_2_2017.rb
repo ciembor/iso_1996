@@ -3,18 +3,17 @@
 module ISO_1996
 
   ##
-  # == ISO 1996-2:2007 Determination of Sound Pressure Levels
+  # == ISO 1996-2:2017 Acoustics - Description, measurement and assessment of environmental noise - 
+  # Part 2: Determination of sound pressure levels
   #
-  # Module implementing calculations defined in ISO 1996-2:2007:
-  # "Acoustics - Description, measurement and assessment of environmental noise - 
-  # Part 2: Determination of sound pressure levels"
+  # Module implementing calculations defined in ISO 1996-2:2017
   #
   # Author:: Maciej Ciemborowicz
-  # Date:: July 11, 2025
+  # Date:: July 13, 2025
   #
-  module EnvironmentalNoise
+  module Part_2_2017
     ##
-    # Constants defined in ISO 1996-2:2007 standard
+    # Constants defined in ISO 1996-2:2017 standard
     module Constants
       ##
       # Minimum level difference for background correction (ΔL_min) as defined in Section 6.3
@@ -40,7 +39,7 @@ module ISO_1996
     # @raise [ArgumentError] if ΔL ≤ 3 dB (measurement uncertain)
     #
     # Example:
-    #   EnvironmentalNoise.background_noise_correction(65, 60) # => 1.7 dB
+    #   Part_2_2017.background_noise_correction(65, 60) # => 1.7 dB
     #
     def self.background_noise_correction(l_total, l_background)
       delta_l = l_total - l_background
@@ -76,7 +75,7 @@ module ISO_1996
     # @return [Float] Combined measurement uncertainty in dB
     #
     # Example:
-    #   EnvironmentalNoise.measurement_uncertainty([0.5, 1.0, 0.7]) # => 1.28 dB
+    #   Part_2_2017.measurement_uncertainty([0.5, 1.0, 0.7]) # => 1.28 dB
     #
     def self.measurement_uncertainty(uncertainty_components)
       Math.sqrt(uncertainty_components.sum { |c| c ** 2 })
