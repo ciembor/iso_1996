@@ -11,7 +11,7 @@
 #
 # Author:: Maciej Ciemborowicz
 # Date:: July 11, 2025
-# Version:: 1.0.0
+# Version:: 1.1.0
 # License:: MIT
 #
 # == Usage
@@ -37,5 +37,5 @@ require_relative 'iso_1996/noise_limits'
 module ISO_1996
   ##
   # Current version of the gem
-  VERSION = "1.0.0"
+  VERSION = "1.1.0"
 end
