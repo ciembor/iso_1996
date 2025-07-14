@@ -20,7 +20,7 @@ require_relative 'iso_1996/part_2_2017'
 #
 # Author:: Maciej Ciemborowicz
 # Date:: July 11, 2025
-# Version:: 2.0.0
+# Version:: 2.0.1
 # License:: MIT
 #
 # == Usage
@@ -45,5 +45,5 @@ require_relative 'iso_1996/part_2_2017'
 module ISO_1996
   ##
   # Current version of the gem
-  VERSION = "2.0.0"
+  VERSION = "2.0.1"
 end
