@@ -9,7 +9,7 @@
 
   <meta name="keywords" content="ruby,module,ISO_1996">
 
-    <meta name="description" content="Documentation for the ISO_1996 module">
+    <meta name="description" content="module ISO_1996: ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby implementation of ISO 1996 - Acoustics - Description, meas">
 
 
 <script type="text/javascript">
@@ -65,6 +65,26 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#module-ISO_1996-label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise">ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#module-ISO_1996-label-Usage">Usage</a>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
   
   
   
@@ -92,6 +112,55 @@
 
   <section class="description">
     
+<h1 id="module-ISO_1996-label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise">ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise<span><a href="#module-ISO_1996-label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Ruby implementation of ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise. Includes current parts:</p>
+<ul><li>
+<p>ISO 1996-1:2016: Basic quantities and assessment procedures</p>
+</li><li>
+<p>ISO 1996-2:2017: Determination of sound pressure levels</p>
+</li></ul>
+
+<p>As well as some legacy norms:</p>
+<ul><li>
+<p>ISO 1996-1:2003: Basic quantities and assessment procedures</p>
+</li><li>
+<p>ISO 1996-2:2007: Determination of sound pressure levels</p>
+</li><li>
+<p>ISO 1996-3:1987: Application to noise limits</p>
+</li></ul>
+<dl class="rdoc-list note-list"><dt>Author</dt>
+<dd>
+<p>Maciej Ciemborowicz</p>
+</dd><dt>Date</dt>
+<dd>
+<p>July 11, 2025</p>
+</dd><dt>Version</dt>
+<dd>
+<p>2.0.1</p>
+</dd><dt>License</dt>
+<dd>
+<p>MIT</p>
+</dd></dl>
+
+<h2 id="module-ISO_1996-label-Usage">Usage<span><a href="#module-ISO_1996-label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;iso_1996&#39;</span>
+
+<span class="ruby-comment"># Basic calculations</span>
+<span class="ruby-identifier">level</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Basic</span>.<span class="ruby-identifier">sound_pressure_level</span>(<span class="ruby-value">0.1</span>)
+
+<span class="ruby-comment"># Environmental noise corrections</span>
+<span class="ruby-identifier">correction</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">EnvironmentalNoise</span>.<span class="ruby-identifier">background_noise_correction</span>(<span class="ruby-value">65</span>, <span class="ruby-value">60</span>)
+
+<span class="ruby-comment"># Noise limits assessment</span>
+<span class="ruby-identifier">assessment</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">NoiseLimits</span>.<span class="ruby-identifier">assessment_level</span>(<span class="ruby-value">65</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>)
+</pre>
+
+<p>@see <a href="https://www.iso.org/standard/59765.html">www.iso.org/standard/59765.html</a> ISO 1996-1:2016 @see <a href="https://www.iso.org/standard/59766.html">www.iso.org/standard/59766.html</a> ISO 1996-2:2017</p>
+
+<p>@see <a href="https://www.iso.org/standard/28633.html">www.iso.org/standard/28633.html</a> ISO 1996-1:2003 @see <a href="https://www.iso.org/standard/23776.html">www.iso.org/standard/23776.html</a> ISO 1996-2:2007 @see <a href="https://www.iso.org/standard/6750.html">www.iso.org/standard/6750.html</a> ISO 1996-3:1987</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section anchor-link">

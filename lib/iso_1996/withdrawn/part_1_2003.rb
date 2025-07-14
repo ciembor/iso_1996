@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module ISO_1996
+  ##
+  # Withdrawn standards
+  #
   module Withdrawn
 
     ##

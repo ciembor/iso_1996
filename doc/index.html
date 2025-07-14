@@ -10,7 +10,7 @@
   <meta name="keywords" content="ruby,documentation,ISO 1996 Documentation">
 
 
-    <meta name="description" content="ISO 1996 Documentation: ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby gem. badge.">
+    <meta name="description" content="ISO 1996 Documentation: ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby library. badge.">
 
 
 <script type="text/javascript">
@@ -74,12 +74,14 @@
   <ul class="link-list" role="directory">
               <li>
             <details open>
-              <summary>      <a href="#label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise+Ruby+gem.">ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby gem.</a>
+              <summary>      <a href="#label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise+Ruby+library.">ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby library.</a>
 </summary>
               <ul class="link-list" role="directory">
                           <li>      <a href="#label-Features">Features</a>
           <li>      <a href="#label-Installation">Installation</a>
           <li>      <a href="#label-Documentation">Documentation</a>
+          <li>      <a href="#label-Example+Usage">Example Usage</a>
+          <li>      <a href="#label-Handling+Non-formula+Aspects+of+the+Standard">Handling Non-formula Aspects of the Standard</a>
           <li>      <a href="#label-Contributing">Contributing</a>
           <li>      <a href="#label-License">License</a>
           <li>      <a href="#label-Author">Author</a>
@@ -103,7 +105,7 @@
   <div id="classindex-section" class="nav-section">
   <h3>Class and Module Index</h3>
 
-  <ul class="link-list"><li><details open><summary><code><a href="./ISO_1996.html">ISO_1996</a></code></summary><ul class="link-list"><li><details><summary><code><a href="./ISO_1996/Basic.html">Basic</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/Basic/Constants.html">Constants</a></code></li></ul></details></li><li><details><summary><code><a href="./ISO_1996/EnvironmentalNoise.html">EnvironmentalNoise</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/EnvironmentalNoise/Constants.html">Constants</a></code></li></ul></details></li><li><details><summary><code><a href="./ISO_1996/NoiseLimits.html">NoiseLimits</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/NoiseLimits/Constants.html">Constants</a></code></li></ul></details></li></ul></details></li></ul>
+  <ul class="link-list"><li><details open><summary><code><a href="./ISO_1996.html">ISO_1996</a></code></summary><ul class="link-list"><li><details><summary><code><a href="./ISO_1996/Part_1_2016.html">Part_1_2016</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/Part_1_2016/Constants.html">Constants</a></code></li></ul></details></li><li><details><summary><code><a href="./ISO_1996/Part_2_2017.html">Part_2_2017</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/Part_2_2017/Constants.html">Constants</a></code></li></ul></details></li><li><details><summary><code><a href="./ISO_1996/Withdrawn.html">Withdrawn</a></code></summary><ul class="link-list"><li><details><summary><code><a href="./ISO_1996/Withdrawn/Part_1_2003.html">Part_1_2003</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/Withdrawn/Part_1_2003/Constants.html">Constants</a></code></li></ul></details></li><li><details><summary><code><a href="./ISO_1996/Withdrawn/Part_2_2007.html">Part_2_2007</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/Withdrawn/Part_2_2007/Constants.html">Constants</a></code></li></ul></details></li><li><details><summary><code><a href="./ISO_1996/Withdrawn/Part_3_1987.html">Part_3_1987</a></code></summary><ul class="link-list"><li><code><a href="./ISO_1996/Withdrawn/Part_3_1987/Constants.html">Constants</a></code></li></ul></details></li></ul></details></li></ul></details></li></ul>
 </div>
 
 
@@ -118,15 +120,21 @@
 <main role="main">
 
   
-<h1 id="label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise+Ruby+gem.">ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby gem.<span><a href="#label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise+Ruby+gem.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise+Ruby+library.">ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby library.<span><a href="#label-ISO+1996+-+Acoustics+-+Description-2C+measurement+and+assessment+of+environmental+noise+Ruby+library.">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
 <p><a href="https://badge.fury.io/rb/iso_1996"><img src="https://badge.fury.io/rb/iso_1996.svg" alt="Gem Version"></a> <a href="https://rubydoc.info/gems/iso_1996"><img src="https://img.shields.io/badge/docs-rdoc.info-blue" alt="Documentation"></a></p>
 
-<p>Ruby implementation of ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise.</p>
+<p>Ruby implementation of ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise. Provides complete calculations for environmental noise assessment according to ISO 1996-1:2016 and ISO 1996-2:2017 standards.</p>
 
 <h2 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Complete implementation of all three parts of ISO 1996</p>
+<p>Complete implementation of ISO 1996-1:2016 and ISO 1996-2:2017</p>
+</li><li>
+<p>Calculation of all key acoustic metrics</p>
+</li><li>
+<p>Environmental corrections and uncertainty analysis</p>
+</li><li>
+<p>Day-evening-night level (L&lt;sub&gt;den&lt;/sub&gt;) assessment</p>
 </li><li>
 <p>Fully documented with RDoc comments</p>
 </li><li>
@@ -150,6 +158,193 @@
 <h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
 <p>Full documentation available at: <a href="https://rubydoc.info/gems/iso_1996">rubydoc.info/gems/iso_1996</a></p>
+
+<h2 id="label-Example+Usage">Example Usage<span><a href="#label-Example+Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;iso_1996&#39;</span>
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 1: Data Collection - 6 measurements from sound level meter</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-identifier">measurements</span> = [
+  <span class="ruby-comment"># Continuous measurements (A-weighted, 1-min each)</span>
+  { <span class="ruby-value">time:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">300</span>, <span class="ruby-value">pressure:</span> <span class="ruby-value">0.08</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">60</span> },
+  { <span class="ruby-value">time:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">240</span>, <span class="ruby-value">pressure:</span> <span class="ruby-value">0.12</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">60</span> },
+  { <span class="ruby-value">time:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">180</span>, <span class="ruby-value">pressure:</span> <span class="ruby-value">0.15</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">60</span> },
+  { <span class="ruby-value">time:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">120</span>, <span class="ruby-value">pressure:</span> <span class="ruby-value">0.10</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">60</span> },
+  { <span class="ruby-value">time:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-value">60</span>,  <span class="ruby-value">pressure:</span> <span class="ruby-value">0.18</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">60</span> },
+  
+  <span class="ruby-comment"># Impulse measurement (C-weighted, 100ms)</span>
+  { <span class="ruby-value">time:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>,       <span class="ruby-value">pressure:</span> <span class="ruby-value">0.25</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;C&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">0.1</span> }
+]
+
+<span class="ruby-comment"># Background measurement (5-min average)</span>
+<span class="ruby-identifier">background</span> = { <span class="ruby-value">pressure:</span> <span class="ruby-value">0.05</span>, <span class="ruby-value">weighting:</span> <span class="ruby-string">&#39;A&#39;</span>, <span class="ruby-value">duration:</span> <span class="ruby-value">300</span> }
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 2: Calculate Basic Sound Levels (ISO 1996-1:2016)</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+
+<span class="ruby-comment"># Calculate SPL for each measurement</span>
+<span class="ruby-identifier">measurements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">m</span>[<span class="ruby-value">:spl</span>] = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">sound_pressure_level</span>(<span class="ruby-identifier">m</span>[<span class="ruby-value">:pressure</span>])
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Calculate equivalent continuous sound level (L_Aeq)</span>
+<span class="ruby-identifier">a_weighted</span> = <span class="ruby-identifier">measurements</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">:weighting</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;A&#39;</span> }
+<span class="ruby-identifier">l_aeq</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">equivalent_continuous_sound_level</span>(
+  <span class="ruby-identifier">a_weighted</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">:spl</span>] },
+  <span class="ruby-identifier">a_weighted</span>.<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">:duration</span>] }
+)
+
+<span class="ruby-comment"># Calculate peak sound pressure level (L_Cpeak)</span>
+<span class="ruby-identifier">impulse</span> = <span class="ruby-identifier">measurements</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">:weighting</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;C&#39;</span> }
+<span class="ruby-identifier">l_cpeak</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">peak_sound_pressure_level</span>(<span class="ruby-identifier">impulse</span>[<span class="ruby-value">:pressure</span>])
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 3: Environmental Corrections (ISO 1996-2:2017)</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+
+<span class="ruby-comment"># Calculate background noise correction</span>
+<span class="ruby-identifier">background_spl</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">sound_pressure_level</span>(<span class="ruby-identifier">background</span>[<span class="ruby-value">:pressure</span>])
+<span class="ruby-identifier">background_correction</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_2_2017</span>.<span class="ruby-identifier">background_noise_correction</span>(<span class="ruby-identifier">l_aeq</span>, <span class="ruby-identifier">background_spl</span>)
+
+<span class="ruby-comment"># Apply atmospheric absorption correction</span>
+<span class="ruby-identifier">attenuation_coefficient</span> = <span class="ruby-value">0.005</span>  <span class="ruby-comment"># dB/m (from ISO 9613-1 based on temp/humidity)</span>
+<span class="ruby-identifier">distance</span> = <span class="ruby-value">50.0</span>  <span class="ruby-comment"># meters</span>
+<span class="ruby-identifier">atmospheric_correction</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_2_2017</span>.<span class="ruby-identifier">atmospheric_absorption_correction</span>(
+  <span class="ruby-identifier">attenuation_coefficient</span>, <span class="ruby-identifier">distance</span>
+)
+
+<span class="ruby-comment"># Calculate total correction</span>
+<span class="ruby-identifier">corrected_l_aeq</span> = <span class="ruby-identifier">l_aeq</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">background_correction</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">atmospheric_correction</span>
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 4: Day-Evening-Night Level Calculation (L_den) (ISO 1996-1:2016)</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+
+<span class="ruby-comment"># Normally collected separately for each period</span>
+<span class="ruby-identifier">day_measurements</span> = [<span class="ruby-value">65.2</span>, <span class="ruby-value">67.1</span>, <span class="ruby-value">66.5</span>]   <span class="ruby-comment"># 3-hour measurements</span>
+<span class="ruby-identifier">evening_measurements</span> = [<span class="ruby-value">63.8</span>, <span class="ruby-value">62.4</span>]      <span class="ruby-comment"># 2-hour measurements</span>
+<span class="ruby-identifier">night_measurements</span> = [<span class="ruby-value">58.7</span>, <span class="ruby-value">57.9</span>, <span class="ruby-value">59.3</span>]  <span class="ruby-comment"># 3-hour measurements</span>
+
+<span class="ruby-comment"># Calculate L_Aeq for each period</span>
+<span class="ruby-identifier">l_day</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">equivalent_continuous_sound_level</span>(<span class="ruby-identifier">day_measurements</span>, <span class="ruby-value">3</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+<span class="ruby-identifier">l_evening</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">equivalent_continuous_sound_level</span>(<span class="ruby-identifier">evening_measurements</span>, <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+<span class="ruby-identifier">l_night</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">equivalent_continuous_sound_level</span>(<span class="ruby-identifier">night_measurements</span>, <span class="ruby-value">3</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+
+<span class="ruby-comment"># Calculate L_den with standard penalties</span>
+<span class="ruby-identifier">l_den</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">day_evening_night_level</span>(<span class="ruby-identifier">l_day</span>, <span class="ruby-identifier">l_evening</span>, <span class="ruby-identifier">l_night</span>)
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 5: Assessment Procedures (ISO 1996-1:2016)</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+
+<span class="ruby-comment"># Determine adjustment factors (requires professional judgment)</span>
+<span class="ruby-identifier">is_tonal_audible</span> = <span class="ruby-keyword">true</span>   <span class="ruby-comment"># Based on spectral analysis</span>
+<span class="ruby-identifier">is_tonal_prominent</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-identifier">k_t</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">tonal_adjustment_factor</span>(
+  <span class="ruby-value">is_audible:</span> <span class="ruby-identifier">is_tonal_audible</span>, 
+  <span class="ruby-value">is_prominent:</span> <span class="ruby-identifier">is_tonal_prominent</span>
+)
+
+<span class="ruby-identifier">is_impulse_audible</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">is_impulse_distinct</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">k_i</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">impulsive_adjustment_factor</span>(
+  <span class="ruby-value">is_audible:</span> <span class="ruby-identifier">is_impulse_audible</span>,
+  <span class="ruby-value">is_distinct:</span> <span class="ruby-identifier">is_impulse_distinct</span>
+)
+
+<span class="ruby-comment"># Calculate assessment level</span>
+<span class="ruby-identifier">assessment_level</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">assessment_level</span>(<span class="ruby-identifier">corrected_l_aeq</span>, <span class="ruby-identifier">k_t</span>, <span class="ruby-identifier">k_i</span>)
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 6: Compliance Evaluation</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-identifier">noise_limit</span> = <span class="ruby-value">65.0</span>  <span class="ruby-comment"># dB(A) - local regulation</span>
+<span class="ruby-identifier">uncertainty_components</span> = [<span class="ruby-value">0.5</span>, <span class="ruby-value">1.0</span>, <span class="ruby-value">0.7</span>]  <span class="ruby-comment"># Instrument, position, environmental</span>
+<span class="ruby-identifier">measurement_uncertainty</span> = <span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_2_2017</span>.<span class="ruby-identifier">measurement_uncertainty</span>(<span class="ruby-identifier">uncertainty_components</span>)
+
+<span class="ruby-identifier">is_compliant</span> = <span class="ruby-operator">!</span><span class="ruby-constant">ISO_1996</span><span class="ruby-operator">::</span><span class="ruby-constant">Part_1_2016</span>.<span class="ruby-identifier">compliance_evaluation</span>(
+  <span class="ruby-identifier">assessment_level</span>, 
+  <span class="ruby-identifier">noise_limit</span>, 
+  <span class="ruby-identifier">measurement_uncertainty</span>
+)
+
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-comment"># STEP 7: Reporting</span>
+<span class="ruby-comment"># ----------------------------------------------------------</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Environmental Noise Assessment Report&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;------------------------------------&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Measurement Period: #{measurements.first[:time]} to #{measurements.last[:time]}&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Equivalent Continuous Level (L_Aeq): #{l_aeq.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Background Correction: #{background_correction.round(1)} dB&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Atmospheric Correction: #{atmospheric_correction.round(1)} dB&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Corrected L_Aeq: #{corrected_l_aeq.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Tonal Adjustment (K_T): #{k_t} dB&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Impulsive Adjustment (K_I): #{k_i} dB&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Assessment Level (L_r): #{assessment_level.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Day Level (L_day): #{l_day.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Evening Level (L_evening): #{l_evening.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Night Level (L_night): #{l_night.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Day-Evening-Night Level (L_den): #{l_den.round(1)} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Peak Sound Level (L_Cpeak): #{l_cpeak.round(1)} dB(C)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Noise Limit: #{noise_limit} dB(A)&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Measurement Uncertainty: ±#{measurement_uncertainty.round(1)} dB&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Compliance Status: #{is_compliant ? &#39;PASS&#39; : &#39;FAIL&#39;}&quot;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;------------------------------------&quot;</span>
+</pre>
+
+<h2 id="label-Handling+Non-formula+Aspects+of+the+Standard">Handling Non-formula Aspects of the Standard<span><a href="#label-Handling+Non-formula+Aspects+of+the+Standard">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The ISO 1996 standards contain important guidance that isn’t expressed in formulas but requires professional judgment:</p>
+<ol><li>
+<p>Tonal and Impulsive Character Assessment:</p>
+</li><li>
+<p>Use the tonal_adjustment_factor and impulsive_adjustment_factor methods with parameters based on:</p>
+<ul><li>
+<p>Spectral analysis (FFT) to identify prominent tones</p>
+</li><li>
+<p>Auditory assessment by trained professionals</p>
+</li><li>
+<p>Historical data and community complaints</p>
+</li></ul>
+</li><li>
+<p>Meteorological Conditions:</p>
+</li><li>
+<p>Measure and apply corrections for:</p>
+<ul><li>
+<p>Wind speed and direction (affects sound propagation)</p>
+</li><li>
+<p>Temperature gradients (affects refraction)</p>
+</li><li>
+<p>Humidity (affects high-frequency absorption)</p>
+</li><li>
+<p>Use ISO 9613-1 for detailed atmospheric absorption coefficients</p>
+</li></ul>
+</li><li>
+<p>Measurement Uncertainty:</p>
+</li><li>
+<p>Calculate using the measurement_uncertainty method with components:</p>
+<ul><li>
+<p>Instrument calibration uncertainty</p>
+</li><li>
+<p>Measurement position uncertainty</p>
+</li><li>
+<p>Environmental conditions uncertainty</p>
+</li></ul>
+</li><li>
+<p>Time Period Handling:</p>
+</li><li>
+<p>For day-evening-night calculations:</p>
+<ul><li>
+<p>Collect separate measurements for each period</p>
+</li><li>
+<p>Use local definitions for period boundaries (e.g., day: 7:00-19:00)</p>
+</li><li>
+<p>Apply appropriate penalties (standard is 5 dB evening, 10 dB night)</p>
+</li></ul>
+</li></ol>
 
 <h2 id="label-Contributing">Contributing<span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
