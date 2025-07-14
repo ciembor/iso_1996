@@ -26,14 +26,20 @@ module ISO_1996
       REFERENCE_TIME = 1.0 # s
 
       ##
-      # Standard durations for day, evening, night periods as defined in Annex C.2
+      # Standard duration for day period as defined in Annex C.2
       DAY_DURATION = 12.0 # hours
+      ##
+      # Standard duration for evening period as defined in Annex C.2
       EVENING_DURATION = 4.0 # hours
+      ##
+      # Standard duration for night period as defined in Annex C.2
       NIGHT_DURATION = 8.0 # hours
 
       ##
-      # Penalties for evening and night periods as defined in Annex C.2
+      # Penalty for evening period as defined in Annex C.2
       EVENING_PENALTY = 5.0 # dB
+      ##
+      # Penalty for night period as defined in Annex C.2
       NIGHT_PENALTY = 10.0 # dB
     end
     include Constants

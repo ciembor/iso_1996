@@ -1,6 +1,8 @@
-Sun, 13 Jul 2025 11:27:19 +0200
-lib/iso_1996.rb	Fri, 11 Jul 2025 22:04:01 +0200
-lib/iso_1996/basic.rb	Fri, 11 Jul 2025 21:56:32 +0200
-lib/iso_1996/environmental_noise.rb	Fri, 11 Jul 2025 21:33:49 +0200
-lib/iso_1996/noise_limits.rb	Fri, 11 Jul 2025 21:56:22 +0200
-README.md	Sun, 13 Jul 2025 09:18:33 +0200
+Mon, 14 Jul 2025 04:19:32 +0200
+lib/iso_1996.rb	Mon, 14 Jul 2025 04:19:30 +0200
+lib/iso_1996/part_1_2016.rb	Mon, 14 Jul 2025 04:17:50 +0200
+lib/iso_1996/part_2_2017.rb	Sun, 13 Jul 2025 14:42:16 +0200
+lib/iso_1996/withdrawn/part_1_2003.rb	Mon, 14 Jul 2025 04:18:30 +0200
+lib/iso_1996/withdrawn/part_2_2007.rb	Sun, 13 Jul 2025 14:25:11 +0200
+lib/iso_1996/withdrawn/part_3_1987.rb	Sun, 13 Jul 2025 14:25:17 +0200
+README.md	Mon, 14 Jul 2025 00:36:17 +0200

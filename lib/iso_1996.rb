@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'iso_1996/withdrawn/part_1_2003'
+require_relative 'iso_1996/withdrawn/part_2_2007'
+require_relative 'iso_1996/withdrawn/part_3_1987'
+require_relative 'iso_1996/part_1_2016'
+require_relative 'iso_1996/part_2_2017'
+
 ##
 # = ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise
 #
@@ -35,13 +41,7 @@
 # @see https://www.iso.org/standard/28633.html ISO 1996-1:2003
 # @see https://www.iso.org/standard/23776.html ISO 1996-2:2007
 # @see https://www.iso.org/standard/6750.html ISO 1996-3:1987
-
-require_relative 'iso_1996/withdrawn/part_1_2003'
-require_relative 'iso_1996/withdrawn/part_2_2007'
-require_relative 'iso_1996/withdrawn/part_3_1987'
-require_relative 'iso_1996/part_1_2016'
-require_relative 'iso_1996/part_2_2017'
-
+#
 module ISO_1996
   ##
   # Current version of the gem
