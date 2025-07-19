@@ -4,7 +4,5 @@ module ISO_1996
   #
   # @constant
   # @return [String] the current version in format MAJOR.MINOR.PATCH
-  # @example
-  #   ISO_1996::VERSION # => "2.0.2"
-  VERSION = "2.0.2".freeze
+  VERSION = "2.0.3".freeze
 end
