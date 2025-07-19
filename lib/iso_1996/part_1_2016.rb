@@ -1,59 +1,72 @@
 # frozen_string_literal: true
 
 module ISO_1996
-
   ##
-  # == ISO 1996-1:2016 Acoustics - Description, measurement and assessment of environmental noise - 
+  # ISO 1996-1:2016 Acoustics - Description, measurement and assessment of environmental noise - 
   # Part 1: Basic quantities and assessment procedures
   #
   # Module implementing calculations defined in ISO 1996-1:2016
   #
-  # Author:: Maciej Ciemborowicz
-  # Date:: July 13, 2025
-  #
+  # @author Maciej Ciemborowicz
+  # @since 2025-07-13
   module Part_1_2016
     ##
     # Constants defined in ISO 1996-1:2016 standard
     module Constants
       ##
       # Reference sound pressure (p₀) as defined in Section 3.1.1
-      # Value: 20 μPa (20e-6 Pa)
-      REFERENCE_SOUND_PRESSURE = 20e-6 # Pa
+      # @constant
+      # @return [Float] 20 μPa (20e-6 Pa)
+      REFERENCE_SOUND_PRESSURE = 20e-6
 
       ##
       # Reference time (t₀) for sound exposure level as defined in Section 3.1.8
-      # Value: 1 second
-      REFERENCE_TIME = 1.0 # s
+      # @constant
+      # @return [Float] 1 second
+      REFERENCE_TIME = 1.0
 
       ##
       # Standard duration for day period as defined in Annex C.2
-      DAY_DURATION = 12.0 # hours
+      # @constant
+      # @return [Float] 12.0 hours
+      DAY_DURATION = 12.0
+      
       ##
       # Standard duration for evening period as defined in Annex C.2
-      EVENING_DURATION = 4.0 # hours
+      # @constant
+      # @return [Float] 4.0 hours
+      EVENING_DURATION = 4.0
+      
       ##
       # Standard duration for night period as defined in Annex C.2
-      NIGHT_DURATION = 8.0 # hours
+      # @constant
+      # @return [Float] 8.0 hours
+      NIGHT_DURATION = 8.0
 
       ##
       # Penalty for evening period as defined in Annex C.2
-      EVENING_PENALTY = 5.0 # dB
+      # @constant
+      # @return [Float] 5.0 dB
+      EVENING_PENALTY = 5.0
+      
       ##
       # Penalty for night period as defined in Annex C.2
-      NIGHT_PENALTY = 10.0 # dB
+      # @constant
+      # @return [Float] 10.0 dB
+      NIGHT_PENALTY = 10.0
     end
     include Constants
 
     ##
     # Calculate sound pressure level (L_p) as defined in Section 3.1.2
     #
-    # L_p = 10 * log10(p² / p₀²) dB
+    # @math L_p = 10 \log_{10}\left(\frac{p^2}{p_0^2}\right) \text{ dB}
     #
     # @param p [Float] Root-mean-square sound pressure (Pa)
     # @return [Float] Sound pressure level in dB
     #
-    # Example:
-    #   Part_1_2016.sound_pressure_level(0.1) # => 74.0 dB
+    # @example Calculate for 0.1 Pa
+    #   Part_1_2016.sound_pressure_level(0.1) # => 74.0
     #
     def self.sound_pressure_level(p)
       10 * Math.log10((p ** 2) / (Constants::REFERENCE_SOUND_PRESSURE ** 2))
@@ -62,12 +75,12 @@ module ISO_1996
     ##
     # Calculate sound exposure level (L_AE) as defined in Section 3.1.8
     #
-    # L_AE = 10 * log10( (1/t₀) * ∫(p_A²(t)/p₀²) dt ) dB
+    # @math L_{AE} = 10 \log_{10}\left(\frac{1}{t_0} \cdot \frac{p_A^2}{p_0^2}\right) \text{ dB}
     #
     # @param p_a [Float] A-weighted sound pressure (Pa)
     # @return [Float] Sound exposure level in dB
     #
-    # Note: This method assumes a single value for simplicity. 
+    # @note This method assumes a single value for simplicity.
     #       For time-varying signals, integration over time is required.
     #
     def self.sound_exposure_level(p_a)
@@ -77,19 +90,19 @@ module ISO_1996
     ##
     # Calculate equivalent continuous sound level (L_Aeq,T) as defined in Section 3.1.7
     #
-    # L_Aeq,T = 10 * log10( (1/T) * Σ(10^(0.1*L_i)) ) dB
+    # @math L_{Aeq,T} = 10 \log_{10}\left(\frac{1}{T} \sum 10^{0.1L_i}\right) \text{ dB}
     #
     # @param levels [Array<Float>] Array of sound pressure levels (dB)
     # @param measurement_time [Float] Total measurement time (seconds)
     # @return [Float] Equivalent continuous sound level in dB
+    # @raise [ArgumentError] if measurement_time is not positive
     #
-    # Example:
+    # @example Calculate for 3 measurements
     #   levels = [65.0, 67.0, 63.0]
-    #   Part_1_2016.equivalent_continuous_sound_level(levels, 3.0) # => ~65.1 dB
+    #   Part_1_2016.equivalent_continuous_sound_level(levels, 3.0) # => ~65.1
     #
     def self.equivalent_continuous_sound_level(levels, measurement_time)
       raise ArgumentError, "Measurement time must be positive" if measurement_time <= 0
-      
       return -Float::INFINITY if levels.empty?
 
       energy_sum = levels.sum { |l| 10 ** (l / 10.0) }
@@ -99,7 +112,7 @@ module ISO_1996
     ##
     # Calculate peak sound pressure level (L_pC,peak) as defined in Section 3.1.10
     #
-    # L_pC,peak = 20 * log10(p_Cmax / p₀) dB
+    # @math L_{pC,peak} = 20 \log_{10}\left(\frac{p_{Cmax}}{p_0}\right) \text{ dB}
     #
     # @param p_c_max [Float] Maximum C-weighted sound pressure (Pa)
     # @return [Float] Peak sound pressure level in dB
@@ -111,7 +124,7 @@ module ISO_1996
     ##
     # Calculate day-evening-night level (L_den) as defined in Annex C.2
     #
-    # L_den = 10 * log10( (1/24) * [t_d·10^(L_day/10) + t_e·10^((L_evening + P_e)/10) + t_n·10^((L_night + P_n)/10)] ) dB
+    # @math L_{den} = 10 \log_{10}\left(\frac{1}{24}\left[t_d10^{L_{day}/10} + t_e10^{(L_{evening}+P_e)/10} + t_n10^{(L_{night}+P_n)/10}\right]\right) \text{ dB}
     #
     # @param l_day [Float] Day-time equivalent sound level (dB)
     # @param l_evening [Float] Evening-time equivalent sound level (dB)
@@ -123,8 +136,8 @@ module ISO_1996
     # @param night_penalty [Float] Penalty for night period (dB)
     # @return [Float] Day-evening-night level in dB
     #
-    # Example:
-    #   Part_1_2016.day_evening_night_level(65.0, 62.0, 58.0) # => ~67.1 dB
+    # @example Standard case
+    #   Part_1_2016.day_evening_night_level(65.0, 62.0, 58.0) # => ~67.1
     #
     def self.day_evening_night_level(l_day, l_evening, l_night,
                                     day_duration: Constants::DAY_DURATION,
@@ -146,12 +159,12 @@ module ISO_1996
     #
     # @param is_audible [Boolean] Whether the tone is clearly audible
     # @param is_prominent [Boolean] Whether the tone is prominent
-    # @return [Float] Tonal adjustment factor in dB (0.0, 3.0, 6.0)
+    # @return [Float] Tonal adjustment factor in dB (0.0, 3.0, or 6.0)
     #
-    # According to Annex D.3:
-    #   Prominent tone: 6 dB
-    #   Clearly audible but not prominent: 3 dB
-    #   Not clearly audible: 0 dB
+    # @note According to Annex D.3:
+    #   - Prominent tone: 6 dB
+    #   - Clearly audible but not prominent: 3 dB
+    #   - Not clearly audible: 0 dB
     #
     def self.tonal_adjustment_factor(is_audible: false, is_prominent: false)
       return 0.0 unless is_audible
@@ -164,12 +177,12 @@ module ISO_1996
     #
     # @param is_audible [Boolean] Whether the impulsive sound is clearly audible
     # @param is_distinct [Boolean] Whether the impulsive sound is distinct
-    # @return [Float] Impulsive adjustment factor in dB (0.0, 3.0, 6.0)
+    # @return [Float] Impulsive adjustment factor in dB (0.0, 3.0, or 6.0)
     #
-    # According to Annex D.4:
-    #   Distinct impulsive sound: 6 dB
-    #   Clearly audible but not distinct: 3 dB
-    #   Not clearly audible: 0 dB
+    # @note According to Annex D.4:
+    #   - Distinct impulsive sound: 6 dB
+    #   - Clearly audible but not distinct: 3 dB
+    #   - Not clearly audible: 0 dB
     #
     def self.impulsive_adjustment_factor(is_audible: false, is_distinct: false)
       return 0.0 unless is_audible
@@ -180,7 +193,7 @@ module ISO_1996
     ##
     # Calculate assessment level (L_r) as defined in Section 3.6
     #
-    # L_r = L_AeqT + K_T + K_I dB
+    # @math L_r = L_{AeqT} + K_T + K_I \text{ dB}
     #
     # @param l_aeq_t [Float] Equivalent continuous A-weighted sound pressure level (dB)
     # @param k_t [Float] Tonal adjustment factor (dB)
@@ -197,7 +210,9 @@ module ISO_1996
     # @param assessment_level [Float] Calculated assessment level (dB)
     # @param noise_limit [Float] Applicable noise limit (dB)
     # @param measurement_uncertainty [Float] Measurement uncertainty (dB)
-    # @return [Boolean] True if limit is exceeded (assessment_level > noise_limit + measurement_uncertainty)
+    # @return [Boolean] True if limit is exceeded
+    #
+    # @note Returns true when assessment_level > noise_limit + measurement_uncertainty
     #
     def self.compliance_evaluation(assessment_level, noise_limit, measurement_uncertainty)
       assessment_level > noise_limit + measurement_uncertainty

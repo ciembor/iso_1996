@@ -3,13 +3,13 @@
 module ISO_1996
 
   ##
-  # == ISO 1996-2:2017 Acoustics - Description, measurement and assessment of environmental noise - 
+  # ISO 1996-2:2017 Acoustics - Description, measurement and assessment of environmental noise - 
   # Part 2: Determination of sound pressure levels
   #
   # Module implementing calculations defined in ISO 1996-2:2017
   #
-  # Author:: Maciej Ciemborowicz
-  # Date:: July 13, 2025
+  # @author Maciej Ciemborowicz
+  # @since 2025-07-13
   #
   module Part_2_2017
     ##
@@ -17,28 +17,35 @@ module ISO_1996
     module Constants
       ##
       # Minimum level difference for background correction (ΔL_min) as defined in Section 6.3
-      # Value: 3 dB
-      MIN_BACKGROUND_LEVEL_DIFFERENCE = 3.0 # dB
+      #
+      # @constant
+      # @return [Float] 3.0 dB
+      MIN_BACKGROUND_LEVEL_DIFFERENCE = 3.0
 
       ##
       # Threshold for background correction (ΔL_threshold) as defined in Section 6.3
-      # Value: 10 dB
-      BACKGROUND_CORRECTION_THRESHOLD = 10.0 # dB
+      #
+      # @constant
+      # @return [Float] 10.0 dB
+      BACKGROUND_CORRECTION_THRESHOLD = 10.0
     end
     include Constants
 
     ##
     # Calculate background noise correction (K₁) as defined in Section 6.3 and Annex D
     #
-    # K₁ = -10 * log10(1 - 10^(-0.1 * ΔL)) dB
-    # where ΔL = L_total - L_background
+    # @math K_1 = -10 \log_{10}(1 - 10^{-0.1 \Delta L}) \text{ dB}
+    # where @math \Delta L = L_{\mathrm{total}} - L_{\mathrm{background}}
+    #
+    # @note Correction is not applied when ΔL ≥ 10 dB
+    # @see https://www.iso.org/standard/59816.html ISO 1996-2:2017
     #
     # @param l_total [Float] Total sound pressure level (dB)
     # @param l_background [Float] Background sound pressure level (dB)
     # @return [Float] Background noise correction in dB
     # @raise [ArgumentError] if ΔL ≤ 3 dB (measurement uncertain)
     #
-    # Example:
+    # @example
     #   Part_2_2017.background_noise_correction(65, 60) # => 1.7 dB
     #
     def self.background_noise_correction(l_total, l_background)
@@ -56,7 +63,7 @@ module ISO_1996
     ##
     # Calculate atmospheric absorption correction (A_atm) as defined in Section 7.3 and Annex A
     #
-    # A_atm = α * d dB
+    # @math A_{\mathrm{atm}} = \alpha \cdot d \text{ dB}
     #
     # @param attenuation_coefficient [Float] Atmospheric attenuation coefficient (dB/m)
     # @param propagation_distance [Float] Sound propagation distance (m)
@@ -69,12 +76,12 @@ module ISO_1996
     ##
     # Calculate combined measurement uncertainty as defined in Section 9
     #
-    # u_total = √(Σ(u_i²)) dB
+    # @math u_{\mathrm{total}} = \sqrt{\sum u_i^2} \text{ dB}
     #
     # @param uncertainty_components [Array<Float>] Array of uncertainty components (dB)
     # @return [Float] Combined measurement uncertainty in dB
     #
-    # Example:
+    # @example
     #   Part_2_2017.measurement_uncertainty([0.5, 1.0, 0.7]) # => 1.28 dB
     #
     def self.measurement_uncertainty(uncertainty_components)

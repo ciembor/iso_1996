@@ -1,23 +1,19 @@
 PATH
   remote: .
   specs:
-    iso_1996 (2.0.1)
+    iso_1996 (2.0.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    cgi (0.5.0)
-    date (3.4.1)
     diff-lcs (1.6.2)
-    erb (4.0.4)
-      cgi (>= 0.3.3)
-    psych (5.2.6)
-      date
-      stringio
+    kramdown (2.5.1)
+      rexml (>= 3.3.9)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     rake (13.3.0)
-    rdoc (6.14.2)
-      erb
-      psych (>= 4.0.0)
+    redcarpet (3.6.1)
+    rexml (3.4.1)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -31,7 +27,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.4)
-    stringio (3.1.7)
+    yard (0.9.37)
 
 PLATFORMS
   arm64-darwin-23
@@ -39,9 +35,12 @@ PLATFORMS
 
 DEPENDENCIES
   iso_1996!
+  kramdown (~> 2.4)
+  kramdown-parser-gfm (~> 1.1)
   rake (~> 13.0)
-  rdoc (~> 6.5)
+  redcarpet (~> 3.5)
   rspec (~> 3.0)
+  yard (~> 0.9.28)
 
 BUNDLED WITH
    2.5.23
