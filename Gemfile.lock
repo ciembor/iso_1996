@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    iso_1996 (2.0.2)
+    iso_1996 (2.0.3)
 
 GEM
   remote: https://rubygems.org/

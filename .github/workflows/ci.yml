@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   test:
     name: RSpec Tests
@@ -21,6 +26,7 @@ jobs:
           
       - name: Configure and install
         run: |
+          bundle config set deployment false
           bundle config set frozen false
           bundle config set path vendor/bundle
           bundle install
@@ -33,6 +39,10 @@ jobs:
     needs: test
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - uses: actions/checkout@v4
       
@@ -44,25 +54,25 @@ jobs:
           
       - name: Configure and install
         run: |
+          bundle config set deployment false
           bundle config set frozen false
           bundle config set path vendor/bundle
           bundle install
           
-      - name: Install YARD and dependencies
-        run: |
-          gem install yard kramdown kramdown-parser-gfm redcarpet
-          
       - name: Generate documentation
         run: |
-          yard doc --markup markdown --markup-provider kramdown --embed-mixins \
-                 --files README.md,LICENSE.md --output-dir ./docs \
-                 --title "ISO 1996 Acoustics Library for Ruby" --math mathjax
+          bundle exec yard doc
           mv docs/_index.html docs/index.html
           touch docs/.nojekyll
           
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          enable_jekyll: false
+          path: ./docs
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
