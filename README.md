@@ -2,7 +2,7 @@
 # ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise Ruby library.
 
 [![Gem Version](https://badge.fury.io/rb/iso_1996.svg)](https://badge.fury.io/rb/iso_1996)
-[![Documentation](https://img.shields.io/badge/docs-rdoc.info-blue)](https://rubydoc.info/gems/iso_1996)
+[![Documentation](https://img.shields.io/badge/docs-rdoc.info-blue)](https://ciembor.github.io/iso_1996)
 
 Ruby implementation of ISO 1996 - Acoustics - Description, measurement and assessment of environmental noise. 
 Provides complete calculations for environmental noise assessment according to ISO 1996-1:2016 and ISO 1996-2:2017 standards.
@@ -33,7 +33,7 @@ gem install iso_1996
 
 ## Documentation
 Full documentation available at:
-https://rubydoc.info/gems/iso_1996
+https://ciembor.github.io/iso_1996
 
 ## Example Usage
 
